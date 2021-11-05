@@ -18,6 +18,11 @@ numero di likes.
 // 2. Creazione stringa innerhtml da dover trasferire poi nel mio html ----> richiamo variabile globale container per scrivere successivamente al suo interno
 //  se clicco sul pulsante mi piace, incrementerò il numero dei likes ----> condizione click
 
+// var globale
+const containerPosto = document.getElementById("container");
+
+
+// Array di oggetti 
 const post = [
 
     {
@@ -42,7 +47,46 @@ const post = [
         "fotoProfilo" : "img/delpiero.jpg",
         "data" : "47 min fa",
         "testoPost" : "In diretta dal Club di sky per commentare questo splendido #JuveInter, ci vediamo tra poco !",
-        "immagine" : "img/alex.jpg",
-        "likes" : 327000
+        // "immagine" : "",
+        "likes" : 355090
     }
 ]
+
+for ( let i = 0 ; i < post.length; i++){
+    let OggettoPost = post[i]
+    console.log(OggettoPost);
+    const {nome,fotoProfilo,data,testoPost,immagine,likes} = OggettoPost;
+    let innerPostHtml = `
+    <div class="post">
+            <div class="post__header">
+                <div class="post-meta">                    
+                    <div class="post-meta__icon">
+                        <img class="profile-pic" src="${fotoProfilo}" alt="${nome}">                    
+                    </div>
+                    <div class="post-meta__data">
+                        <div class="post-meta__author">${nome}</div>
+                        <div class="post-meta__time">${data}</div>
+                    </div>                    
+                </div>
+            </div>
+            <div class="post__text">${testoPost} </div>
+            <div class="post__image">
+                <img src="${immagine}" alt="">
+            </div>
+            <div class="post__footer">
+                <div class="likes js-likes">
+                    <div class="likes__cta">
+                        <a class="like-button  js-like-button" href="#" data-postid="1">
+                            <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                            <span class="like-button__label">Mi Piace</span>
+                        </a>
+                    </div>
+                    <div class="likes__counter">
+                        Piace a <b id="like-counter-1" class="js-likes-counter">${likes}</b> persone
+                    </div>
+                </div> 
+            </div>            
+        </div>
+    `
+    containerPosto.innerHTML += innerPostHtml
+}
