@@ -15,6 +15,7 @@ numero di likes.
 // 1. Creo il mio array di oggetti 
 // 1.1 Ogni oggetto dovrà contenere Il nome autore, l immagine del profilo, la data , il testo del post, l immagine se presente, il numero di likes.
 
+// 2. Creazione stringa innerhtml da dover trasferire poi nel mio html ----> richiamo variabile globale container per scrivere successivamente al suo interno
 //  se clicco sul pulsante mi piace, incrementerò il numero dei likes ----> condizione click
 
 const post = [
